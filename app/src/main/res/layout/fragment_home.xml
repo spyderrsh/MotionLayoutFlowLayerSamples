@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.motionlayout.LayerFragment"
+    >
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/contentScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+
+            <!-- Items are tools:padded in their own layout files for aethestic reasons
+                 so here we tools:padded = 0
+            -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                tools:paddingEnd="0dp"
+                tools:paddingStart="0dp"
+                >
+                <!-- Scrolling content -->
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?actionBarSize"
+            >
+
+            <com.spyderrsh.demo.motionlayoutappbarlayout.ui.toolbar.CollapsibleToolbarMotionLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="?actionBarSize"
+                app:layoutDescription="@xml/motion_layout_toolbar_scene"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                android:background="?android:colorBackground"
+                >
+
+                <View
+                    android:id="@+id/toolbarBackground"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:minHeight="?actionBarSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <ImageView
+                    android:id="@+id/projectImage"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/header_image"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <View
+                    android:id="@+id/fabTopGuideline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="24dp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/projectImage"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/shareFab"
+                    style="@style/Widget.MaterialComponents.FloatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="18dp"
+                    app:fabCustomSize="48dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fabTopGuideline"
+                    app:srcCompat="@drawable/ic_baseline_share_24"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/projectShortDate"
+                    style="?textAppearanceSubtitle1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_baseline_event_24"
+                    android:drawablePadding="10dp"
+                    android:drawableTint="?colorSecondary"
+                    android:gravity="center"
+                    android:text="7/9/2020"
+                    android:textColor="?colorSecondary"
+                    android:textStyle="bold"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/projectTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:gravity="center_vertical"
+                    android:text="Make blankets for refugees overseas -- And some more text to make the title longer and get our 3 lines in"
+                    android:textAppearance="?textAppearanceHeadline5"
+                    android:textStyle="bold"
+                    />
+
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                    />
+
+            </com.spyderrsh.demo.motionlayoutappbarlayout.ui.toolbar.CollapsibleToolbarMotionLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <Button
+            android:id="@+id/bottomVolunteerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:insetBottom="0dp"
+            android:text="button"
+            />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

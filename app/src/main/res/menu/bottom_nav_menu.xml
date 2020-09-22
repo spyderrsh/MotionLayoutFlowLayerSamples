@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_motion_layout"
+        android:icon="@drawable/ic_baseline_play_circle_filled_24"
+        android:title="Motion Layout"
+        />
+
+    <item
+        android:id="@+id/navigation_flow"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Flow"
+        />
+
+    <item
+        android:id="@+id/navigation_layer"
+        android:icon="@drawable/ic_baseline_layers_24"
+        android:title="Layer"
+        />
+
+</menu>

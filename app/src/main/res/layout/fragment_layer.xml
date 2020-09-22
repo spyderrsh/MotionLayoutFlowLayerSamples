@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/fragment_layer_scene"
+
+    >
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/layer1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="card1,
+                                        card3,
+                                        card5,
+                                        card7,
+                                        card9,
+                                        card11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.constraintlayout.helper.widget.Layer
+        android:id="@+id/layer2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="card2,
+                                        card4,
+                                        card6,
+                                        card8,
+                                        card10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/card1"
+        android:layout_width="@dimen/dimen_small"
+        android:layout_height="@dimen/dimen_large"
+        android:background="#81C784"
+        app:layout_constraintBottom_toTopOf="@id/card5"
+        app:layout_constraintEnd_toStartOf="@id/card2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <View
+        android:id="@+id/card2"
+        android:layout_width="@dimen/dimen_medium"
+        android:layout_height="@dimen/dimen_medium"
+        android:background="#90CAF9"
+        app:layout_constraintBottom_toBottomOf="@id/card1"
+        app:layout_constraintEnd_toStartOf="@id/card3"
+        app:layout_constraintStart_toEndOf="@id/card1"
+        app:layout_constraintTop_toTopOf="@id/card1"
+        />
+
+    <View
+        android:id="@+id/card3"
+        android:layout_width="@dimen/dimen_large"
+        android:layout_height="@dimen/dimen_small"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="@id/card1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card2"
+        app:layout_constraintTop_toTopOf="@id/card1"
+        />
+
+    <View
+        android:id="@+id/card4"
+        android:layout_width="@dimen/dimen_small"
+        android:layout_height="@dimen/dimen_small"
+        android:background="#2196F3"
+        app:layout_constraintBottom_toBottomOf="@id/card5"
+        app:layout_constraintEnd_toStartOf="@id/card5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/card5"
+        />
+
+    <View
+        android:id="@+id/card5"
+        android:layout_width="@dimen/dimen_large"
+        android:layout_height="@dimen/dimen_large"
+        android:background="#E91E63"
+        app:layout_constraintBottom_toTopOf="@+id/card8"
+        app:layout_constraintEnd_toStartOf="@id/card6"
+        app:layout_constraintStart_toEndOf="@id/card4"
+        app:layout_constraintTop_toBottomOf="@id/card1"
+        />
+
+    <View
+        android:id="@+id/card6"
+        android:layout_width="@dimen/dimen_large"
+        android:layout_height="@dimen/dimen_small"
+        android:background="#3F51B5"
+        app:layout_constraintBottom_toBottomOf="@id/card5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card5"
+        app:layout_constraintTop_toTopOf="@id/card5"
+        />
+
+    <View
+        android:id="@+id/card7"
+        android:layout_width="@dimen/dimen_medium"
+        android:layout_height="@dimen/dimen_small"
+        android:background="#009688"
+        app:layout_constraintBottom_toBottomOf="@id/card8"
+        app:layout_constraintEnd_toStartOf="@id/card8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/card8"
+        />
+
+    <View
+        android:id="@+id/card8"
+        android:layout_width="@dimen/dimen_medium"
+        android:layout_height="@dimen/dimen_large"
+        android:background="#FF5722"
+        app:layout_constraintBottom_toTopOf="@id/card10"
+        app:layout_constraintEnd_toStartOf="@id/card9"
+        app:layout_constraintStart_toEndOf="@id/card7"
+        app:layout_constraintTop_toBottomOf="@id/card5"
+        />
+
+    <View
+        android:id="@+id/card9"
+        android:layout_width="@dimen/dimen_large"
+        android:layout_height="@dimen/dimen_small"
+        android:background="#E91E63"
+        app:layout_constraintBottom_toBottomOf="@id/card8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/card8"
+        app:layout_constraintTop_toTopOf="@id/card8"
+        />
+
+    <View
+        android:id="@+id/card10"
+        android:layout_width="@dimen/dimen_large"
+        android:layout_height="213dp"
+        android:background="#9575CD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/card11"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card8"
+        />
+
+    <View
+        android:id="@+id/card11"
+        android:layout_width="@dimen/dimen_large"
+        android:layout_height="@dimen/dimen_small"
+        android:background="#283593"
+        app:layout_constraintBottom_toBottomOf="@id/card10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/card10"
+        app:layout_constraintTop_toTopOf="@id/card10"
+        />
+</androidx.constraintlayout.motion.widget.MotionLayout>

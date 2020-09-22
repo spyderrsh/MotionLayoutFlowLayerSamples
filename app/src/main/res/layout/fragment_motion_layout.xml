@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/contentContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/contentScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            >
+
+            <!-- Items are tools:padded in their own layout files for aethestic reasons
+                 so here we tools:padded = 0
+            -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <!-- Scrolling content -->
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="248dp"
+            android:background="?android:colorBackground"
+            android:minHeight="?actionBarSize"
+            >
+
+            <!--This is a MotionLayout that knows how much the toolbar is collapsed-->
+            <com.spyderrsh.demo.motionlayoutappbarlayout.ui.toolbar.CollapsibleToolbarMotionLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="?actionBarSize"
+                app:layoutDescription="@xml/motion_layout_toolbar_scene"
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+                >
+
+                <!-- The background needs to be defined here so it can be included in the motion scene -->
+                <View
+                    android:id="@+id/toolbarBackground"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:alpha="0"
+                    android:background="?colorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/projectImageFrame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <FrameLayout
+                    android:id="@+id/projectImageFrame"
+                    android:layout_width="0dp"
+                    android:layout_height="220dp"
+                    app:layout_constraintBottom_toBottomOf="@null"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    >
+
+                    <ImageView
+                        android:id="@+id/projectImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/header_image"
+                        tools:src="@tools:sample/backgrounds/scenic"
+                        />
+
+                    <View
+                        android:id="@+id/projectEmptyImageScrim"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/missing_project_image_scrim"
+                        />
+
+                    <View
+                        android:id="@+id/projectImageScrim"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/pdp_project_image_scrim"
+                        />
+                </FrameLayout>
+
+                <View
+                    android:id="@+id/fabTopGuideline"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/pdp_fab_radius"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@id/projectImageFrame"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/shareFab"
+                    style="@style/Widget.MaterialComponents.FloatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    app:fabCustomSize="@dimen/js_fab_diameter"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/fabTopGuideline"
+                    app:srcCompat="@drawable/ic_baseline_share_24"
+                    />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/favoriteFab"
+                    style="@style/Widget.MaterialComponents.FloatingActionButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                    app:fabCustomSize="@dimen/js_fab_diameter"
+                    app:layout_constraintEnd_toStartOf="@id/shareFab"
+                    app:layout_constraintTop_toTopOf="@id/shareFab"
+                    app:srcCompat="@drawable/ic_baseline_favorite_border_24"
+                    />
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+                    />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/projectTitleToolbar"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="64dp"
+                    android:layout_marginEnd="@dimen/page_horizontal_spacing_large"
+                    android:alpha="0"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textAppearance="?textAppearanceHeadline6"
+                    android:textColor="?colorOnPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/toolbar"
+                    app:layout_constraintEnd_toEndOf="@id/toolbar"
+                    app:layout_constraintStart_toStartOf="@id/toolbar"
+                    app:layout_constraintTop_toTopOf="@+id/toolbar"
+                    tools:alpha="1"
+                    android:text="Wow! Space"
+                    />
+            </com.spyderrsh.demo.motionlayoutappbarlayout.ui.toolbar.CollapsibleToolbarMotionLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
